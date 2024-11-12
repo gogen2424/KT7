@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KT7_Stepanyan_georgyyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdArticle" Type="Int32" Nullable="false" />
+    <Property Name="IdOblast" Type="Int32" Nullable="false" />
+    <Property Name="Id_Town" Type="Int32" Nullable="false" />
+    <Property Name="Id_Street" Type="Int32" Nullable="false" />
+    <Property Name="Num_house" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Article" Relationship="Self.FK_Adress_Article" FromRole="Adress" ToRole="Article" />
+    <NavigationProperty Name="Oblast" Relationship="Self.FK_Adress_Oblast" FromRole="Adress" ToRole="Oblast" />
+    <NavigationProperty Name="Street" Relationship="Self.FK_Adress_Street" FromRole="Adress" ToRole="Street" />
+    <NavigationProperty Name="Town" Relationship="Self.FK_Adress_Town" FromRole="Adress" ToRole="Town" />
+    <NavigationProperty Name="PartnerImport" Relationship="Self.FK_PartnerImport_Adress" FromRole="Adress" ToRole="PartnerImport" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Article" FromRole="Article" ToRole="Adress" />
+  </EntityType>
+  <EntityType Name="Director">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterProductImport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdProduction" Type="Int32" Nullable="false" />
+    <Property Name="IdPartner" Type="Int32" Nullable="false" />
+    <Property Name="ProductNum" Type="Int32" Nullable="false" />
+    <Property Name="SaleData" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="PartnerName" Relationship="Self.FK_MasterProductImport_PartnerName" FromRole="MasterProductImport" ToRole="PartnerName" />
+    <NavigationProperty Name="Production" Relationship="Self.FK_MasterProductImport_Production" FromRole="MasterProductImport" ToRole="Production" />
+  </EntityType>
+  <EntityType Name="MaterialTypeProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProcentOfUsability" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oblast">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Oblast" FromRole="Oblast" ToRole="Adress" />
+  </EntityType>
+  <EntityType Name="PartnerImport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdTypePartner" Type="Int32" Nullable="false" />
+    <Property Name="IdPartnerName" Type="Int32" Nullable="false" />
+    <Property Name="IdDirector" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone_Number" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdAdress" Type="Int32" Nullable="false" />
+    <Property Name="INN" Type="Int64" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Adress" Relationship="Self.FK_PartnerImport_Adress" FromRole="PartnerImport" ToRole="Adress" />
+    <NavigationProperty Name="PartnerName" Relationship="Self.FK_PartnerImport_PartnerName" FromRole="PartnerImport" ToRole="PartnerName" />
+    <NavigationProperty Name="PartnerType" Relationship="Self.FK_PartnerImport_PartnerType" FromRole="PartnerImport" ToRole="PartnerType" />
+  </EntityType>
+  <EntityType Name="PartnerName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MasterProductImport" Relationship="Self.FK_MasterProductImport_PartnerName" FromRole="PartnerName" ToRole="MasterProductImport" />
+    <NavigationProperty Name="PartnerImport" Relationship="Self.FK_PartnerImport_PartnerName" FromRole="PartnerName" ToRole="PartnerImport" />
+  </EntityType>
+  <EntityType Name="PartnerType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PartnerImport" Relationship="Self.FK_PartnerImport_PartnerType" FromRole="PartnerType" ToRole="PartnerImport" />
+  </EntityType>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MasterProductImport" Relationship="Self.FK_MasterProductImport_Production" FromRole="Production" ToRole="MasterProductImport" />
+    <NavigationProperty Name="ProductsImport" Relationship="Self.FK_ProductsImport_Production" FromRole="Production" ToRole="ProductsImport" />
+  </EntityType>
+  <EntityType Name="ProductTypeImport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TypeProduction" Type="Int32" Nullable="false" />
+    <Property Name="AVGTypeProduction" Type="Double" Nullable="false" />
+    <NavigationProperty Name="TypeProduct" Relationship="Self.FK_ProductTypeImport_TypeProduct1" FromRole="ProductTypeImport" ToRole="TypeProduct" />
+  </EntityType>
+  <EntityType Name="Street">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Street1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Street" FromRole="Street" ToRole="Adress" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Town">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Town" FromRole="Town" ToRole="Adress" />
+  </EntityType>
+  <EntityType Name="TypeProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ProductTypeImport" Relationship="Self.FK_ProductTypeImport_TypeProduct1" FromRole="TypeProduct" ToRole="ProductTypeImport" />
+    <NavigationProperty Name="ProductsImport" Relationship="Self.FK_ProductsImport_TypeProduct" FromRole="TypeProduct" ToRole="ProductsImport" />
+  </EntityType>
+  <EntityType Name="ProductsImport">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdType" />
+      <PropertyRef Name="IdProductName" />
+      <PropertyRef Name="Article" />
+      <PropertyRef Name="MinPricePartner" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdType" Type="Int32" Nullable="false" />
+    <Property Name="IdProductName" Type="Int32" Nullable="false" />
+    <Property Name="Article" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MinPricePartner" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Production" Relationship="Self.FK_ProductsImport_Production" FromRole="ProductsImport" ToRole="Production" />
+    <NavigationProperty Name="TypeProduct" Relationship="Self.FK_ProductsImport_TypeProduct" FromRole="ProductsImport" ToRole="TypeProduct" />
+  </EntityType>
+  <Association Name="FK_Adress_Article">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="IdArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adress_Oblast">
+    <End Role="Oblast" Type="Self.Oblast" Multiplicity="1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oblast">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="IdOblast" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adress_Street">
+    <End Role="Street" Type="Self.Street" Multiplicity="1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Street">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="Id_Street" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adress_Town">
+    <End Role="Town" Type="Self.Town" Multiplicity="1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Town">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="Id_Town" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartnerImport_Adress">
+    <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+    <End Role="PartnerImport" Type="Self.PartnerImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adress">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartnerImport">
+        <PropertyRef Name="IdAdress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MasterProductImport_PartnerName">
+    <End Role="PartnerName" Type="Self.PartnerName" Multiplicity="1" />
+    <End Role="MasterProductImport" Type="Self.MasterProductImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartnerName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MasterProductImport">
+        <PropertyRef Name="IdPartner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MasterProductImport_Production">
+    <End Role="Production" Type="Self.Production" Multiplicity="1" />
+    <End Role="MasterProductImport" Type="Self.MasterProductImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Production">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MasterProductImport">
+        <PropertyRef Name="IdProduction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartnerImport_PartnerName">
+    <End Role="PartnerName" Type="Self.PartnerName" Multiplicity="1" />
+    <End Role="PartnerImport" Type="Self.PartnerImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartnerName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartnerImport">
+        <PropertyRef Name="IdPartnerName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartnerImport_PartnerType">
+    <End Role="PartnerType" Type="Self.PartnerType" Multiplicity="1" />
+    <End Role="PartnerImport" Type="Self.PartnerImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartnerType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartnerImport">
+        <PropertyRef Name="IdTypePartner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsImport_Production">
+    <End Role="Production" Type="Self.Production" Multiplicity="1" />
+    <End Role="ProductsImport" Type="Self.ProductsImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Production">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductsImport">
+        <PropertyRef Name="IdProductName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductTypeImport_TypeProduct1">
+    <End Role="TypeProduct" Type="Self.TypeProduct" Multiplicity="1" />
+    <End Role="ProductTypeImport" Type="Self.ProductTypeImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductTypeImport">
+        <PropertyRef Name="TypeProduction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsImport_TypeProduct">
+    <End Role="TypeProduct" Type="Self.TypeProduct" Multiplicity="1" />
+    <End Role="ProductsImport" Type="Self.ProductsImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeProduct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductsImport">
+        <PropertyRef Name="IdType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KT7_Stepanyan_georgyyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adress" EntityType="Self.Adress" />
+    <EntitySet Name="Article" EntityType="Self.Article" />
+    <EntitySet Name="Director" EntityType="Self.Director" />
+    <EntitySet Name="MasterProductImport" EntityType="Self.MasterProductImport" />
+    <EntitySet Name="MaterialTypeProduct" EntityType="Self.MaterialTypeProduct" />
+    <EntitySet Name="Oblast" EntityType="Self.Oblast" />
+    <EntitySet Name="PartnerImport" EntityType="Self.PartnerImport" />
+    <EntitySet Name="PartnerName" EntityType="Self.PartnerName" />
+    <EntitySet Name="PartnerType" EntityType="Self.PartnerType" />
+    <EntitySet Name="Production" EntityType="Self.Production" />
+    <EntitySet Name="ProductTypeImport" EntityType="Self.ProductTypeImport" />
+    <EntitySet Name="Street" EntityType="Self.Street" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Town" EntityType="Self.Town" />
+    <EntitySet Name="TypeProduct" EntityType="Self.TypeProduct" />
+    <EntitySet Name="ProductsImport" EntityType="Self.ProductsImport" />
+    <AssociationSet Name="FK_Adress_Article" Association="Self.FK_Adress_Article">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adress_Oblast" Association="Self.FK_Adress_Oblast">
+      <End Role="Oblast" EntitySet="Oblast" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adress_Street" Association="Self.FK_Adress_Street">
+      <End Role="Street" EntitySet="Street" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adress_Town" Association="Self.FK_Adress_Town">
+      <End Role="Town" EntitySet="Town" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnerImport_Adress" Association="Self.FK_PartnerImport_Adress">
+      <End Role="Adress" EntitySet="Adress" />
+      <End Role="PartnerImport" EntitySet="PartnerImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MasterProductImport_PartnerName" Association="Self.FK_MasterProductImport_PartnerName">
+      <End Role="PartnerName" EntitySet="PartnerName" />
+      <End Role="MasterProductImport" EntitySet="MasterProductImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MasterProductImport_Production" Association="Self.FK_MasterProductImport_Production">
+      <End Role="Production" EntitySet="Production" />
+      <End Role="MasterProductImport" EntitySet="MasterProductImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnerImport_PartnerName" Association="Self.FK_PartnerImport_PartnerName">
+      <End Role="PartnerName" EntitySet="PartnerName" />
+      <End Role="PartnerImport" EntitySet="PartnerImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnerImport_PartnerType" Association="Self.FK_PartnerImport_PartnerType">
+      <End Role="PartnerType" EntitySet="PartnerType" />
+      <End Role="PartnerImport" EntitySet="PartnerImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsImport_Production" Association="Self.FK_ProductsImport_Production">
+      <End Role="Production" EntitySet="Production" />
+      <End Role="ProductsImport" EntitySet="ProductsImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductTypeImport_TypeProduct1" Association="Self.FK_ProductTypeImport_TypeProduct1">
+      <End Role="TypeProduct" EntitySet="TypeProduct" />
+      <End Role="ProductTypeImport" EntitySet="ProductTypeImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsImport_TypeProduct" Association="Self.FK_ProductsImport_TypeProduct">
+      <End Role="TypeProduct" EntitySet="TypeProduct" />
+      <End Role="ProductsImport" EntitySet="ProductsImport" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

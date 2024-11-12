@@ -1,0 +1,17 @@
+﻿<Application x:Class="KT7.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:KT7"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background"  Value="#67BA80"></Setter>
+            <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+            <Setter Property="FontSize" Value="19"></Setter>
+            
+        </Style>
+    </Application.Resources>
+</Application>
