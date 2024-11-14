@@ -25,6 +25,7 @@ namespace KT7.Data
         public int Rating { get; set; }
     
         public virtual Adress Adress { get; set; }
+        public virtual Director Director { get; set; }
         public virtual PartnerName PartnerName { get; set; }
         public virtual PartnerType PartnerType { get; set; }
     }

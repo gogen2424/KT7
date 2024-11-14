@@ -23,18 +23,27 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+                            <TextBlock  >
+                                <Run Text="{Binding Partner.PartnerType.Name}"></Run>
+                                <Run Text="|"></Run>
+                                <Run Text="{Binding Partner.PartnerName.Name }"></Run>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Partner.Director.Name, StringFormat={}Директор: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Phone_Number, StringFormat={}Номер телефона: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Rating, StringFormat={}Рейтинг: {0}}"></TextBlock>
+                        </StackPanel>
 
-                        <TextBlock Grid.Column="0" Height ="90">
-                            <Run Text="{Binding Partner.ProductType.Name}"></Run>
-                            <Run Text="|"></Run>
-                            <Run Text="{Binding Partner.PartnerName.Name }"></Run>
-                        </TextBlock>
-                        <TextBlock Text="{Binding Partner.Director.Name}"></TextBlock>
-                        <TextBlock Text="{Binding Phone_Number}"></TextBlock>
-                        <TextBlock Text="{Binding Rating}"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding Discount, StringFormat={}Скидка: {0}}"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        
+                        <Button Grid.Column="2" x:Name="Edit" 
+                                Content="Редактировать" Click="Edit_Click"  Margin="10"></Button>
 
-                        <Button Grid.Column="1" x:Name="Delete" 
-                                Content="Удалить" Click="Delete_Click" Margin="30"></Button>
+                        <Button Grid.Column="3" x:Name="Delete"
+                                Content="Удалить" Click="Delete_Click" Margin="10"></Button>
                         
                         
                     </Grid>

@@ -45,11 +45,11 @@ namespace KT7.Data
         public virtual DbSet<PartnerName> PartnerName { get; set; }
         public virtual DbSet<PartnerType> PartnerType { get; set; }
         public virtual DbSet<Production> Production { get; set; }
+        public virtual DbSet<ProductsImport> ProductsImport { get; set; }
         public virtual DbSet<ProductTypeImport> ProductTypeImport { get; set; }
         public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Town> Town { get; set; }
         public virtual DbSet<TypeProduct> TypeProduct { get; set; }
-        public virtual DbSet<ProductsImport> ProductsImport { get; set; }
     }
 }

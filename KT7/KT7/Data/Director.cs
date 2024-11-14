@@ -14,7 +14,16 @@ namespace KT7.Data
     
     public partial class Director
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Director()
+        {
+            this.PartnerImport = new HashSet<PartnerImport>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PartnerImport> PartnerImport { get; set; }
     }
 }

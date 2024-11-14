@@ -4,35 +4,36 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="78eec8b51e1c444f8d665f5825f9f11d" Name="Diagram1">
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Adress" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Article" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Director" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.MasterProductImport" Width="1.5" PointX="8" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.MaterialTypeProduct" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Oblast" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+      <Diagram DiagramId="35d04d4df8c24e1fa1de6e917843fc08" Name="Diagram1">
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Adress" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Article" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Director" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.MasterProductImport" Width="1.5" PointX="11" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.MaterialTypeProduct" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Oblast" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.PartnerImport" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.PartnerName" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.PartnerType" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Production" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.ProductTypeImport" Width="1.5" PointX="8" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Street" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.PartnerName" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.PartnerType" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Production" Width="1.5" PointX="5.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.ProductsImport" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.ProductTypeImport" Width="1.5" PointX="8" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Street" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.Town" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.TypeProduct" Width="1.5" PointX="5.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.ProductsImport" Width="1.5" PointX="8" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KT7_Stepanyan_georgyyModel.TypeProduct" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_Adress_Article" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_Adress_Oblast" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_Adress_Street" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_Adress_Town" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_PartnerImport_Adress" ManuallyRouted="false" />
+        <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_PartnerImport_Director" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_MasterProductImport_PartnerName" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_MasterProductImport_Production" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_PartnerImport_PartnerName" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_PartnerImport_PartnerType" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_ProductsImport_Production" ManuallyRouted="false" />
-        <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_ProductTypeImport_TypeProduct1" ManuallyRouted="false" />
         <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_ProductsImport_TypeProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="KT7_Stepanyan_georgyyModel.FK_ProductTypeImport_TypeProduct1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

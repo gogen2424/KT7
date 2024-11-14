@@ -36,7 +36,7 @@ namespace KT7.Pages
                             group product by partner into g
                             select new
                             {
-                                product = g.Key,
+                                Partner = g.Key,
                                 Discount = CalculateDiscount(g.Sum(d => d.ProductNum))
 
                             }).ToList();
@@ -59,6 +59,19 @@ namespace KT7.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Button editButton = sender as Button;
+            var PartnerData = editButton as dynamic;
+            if(PartnerData == null)
+            {
+                var partner = (PartnerData as dynamic).Partner;
+                Classes.Manager.MainFrame.Navigate(new Pages.AddEdit());
+            }
+              
 
         }
     }

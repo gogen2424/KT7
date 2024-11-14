@@ -85,15 +85,9 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "KT7_Stepanyan_georgyy.dbo.ProductsImport" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ProductsImport">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="IdType" />
-      <PropertyRef Name="IdProductName" />
-      <PropertyRef Name="Article" />
-      <PropertyRef Name="MinPricePartner" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="IdType" Type="int" Nullable="false" />
@@ -224,6 +218,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PartnerImport_Director">
+    <End Role="Director" Type="Self.Director" Multiplicity="1" />
+    <End Role="PartnerImport" Type="Self.PartnerImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Director">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartnerImport">
+        <PropertyRef Name="IdDirector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PartnerImport_PartnerName">
     <End Role="PartnerName" Type="Self.PartnerName" Multiplicity="1" />
     <End Role="PartnerImport" Type="Self.PartnerImport" Multiplicity="*" />
@@ -295,20 +301,12 @@
     <EntitySet Name="PartnerName" EntityType="Self.PartnerName" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PartnerType" EntityType="Self.PartnerType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Production" EntityType="Self.Production" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductsImport" EntityType="Self.ProductsImport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductTypeImport" EntityType="Self.ProductTypeImport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Town" EntityType="Self.Town" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeProduct" EntityType="Self.TypeProduct" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ProductsImport" EntityType="Self.ProductsImport" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ProductsImport].[Id] AS [Id], 
-    [ProductsImport].[IdType] AS [IdType], 
-    [ProductsImport].[IdProductName] AS [IdProductName], 
-    [ProductsImport].[Article] AS [Article], 
-    [ProductsImport].[MinPricePartner] AS [MinPricePartner]
-    FROM [dbo].[ProductsImport] AS [ProductsImport]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Adress_Article" Association="Self.FK_Adress_Article">
       <End Role="Article" EntitySet="Article" />
       <End Role="Adress" EntitySet="Adress" />
@@ -335,6 +333,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_PartnerImport_Adress" Association="Self.FK_PartnerImport_Adress">
       <End Role="Adress" EntitySet="Adress" />
+      <End Role="PartnerImport" EntitySet="PartnerImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnerImport_Director" Association="Self.FK_PartnerImport_Director">
+      <End Role="Director" EntitySet="Director" />
       <End Role="PartnerImport" EntitySet="PartnerImport" />
     </AssociationSet>
     <AssociationSet Name="FK_PartnerImport_PartnerName" Association="Self.FK_PartnerImport_PartnerName">
